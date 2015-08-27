@@ -1,7 +1,4 @@
 <!--Helpers-->
-<?php 
-    require_once '../helpers/rootResolver.php';
-?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	    <title>artist: Giusy Pirrotta</title>
@@ -18,20 +15,17 @@
 	<body>
 		<h1>Content Manager</h1>
 
-<?php               
-    $dirs = glob("*", GLOB_ONLYDIR);
-    if (count($dirs) > 0) {
-        foreach($dirs as $dir) {
-        	if ($dir != "css") {
-	            echo "<p>".$dir."</p>";
-	            $sub_dirs = glob($dir."/*", GLOB_ONLYDIR);
-	            foreach($sub_dirs as $sub_dir) {
-		            echo "<a href='".$sub_dir."'>".$sub_dir."</a>";
-		        }        		
-        	}
+<?php
+	echo "<h4>Main Image</h4>";
+	echo "<img src='mainImage_s.jpg' />";         
+    $images = glob("images/*_s.jpg");
+    echo "<h4>Images</h4>";
+    if (count($images) > 0) {
+        foreach($images as $image) {        	
+			echo "<img src='".$image."' />"; 
         }
-    }            
-
+    }
 ?>
+
 	</body>
 </html>
